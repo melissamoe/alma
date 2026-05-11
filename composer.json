@@ -1,0 +1,21 @@
+{
+    "name": "alma06/alma06",
+    "description": "Site web de l'association ALMA 06",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "melissamoe"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "symfony/mailer": "^7.4"
+    },
+    "autoload": {
+        "psr-4":{
+            "App\\":"app/"
+        }
+    }
+}
