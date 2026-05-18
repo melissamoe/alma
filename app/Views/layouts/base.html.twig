@@ -55,6 +55,7 @@
             </div>
 
             <form action="/newsletter/subscribe" method="POST" id="newsletter-form-bottom" class="footer-newsletter-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
                 <label for="email-bottom" class="sr-only">Adresse email</label>
                 <input type="email" id="email-bottom" name="email" placeholder="Votre adresse email" required>
                 <button type="submit">S’inscrire</button>

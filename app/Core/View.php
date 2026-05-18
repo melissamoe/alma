@@ -4,6 +4,7 @@ namespace App\Core;
 
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+use App\Core\Security;
 
 class View
 {
@@ -21,6 +22,11 @@ class View
 
     public function render(string $template, array $data = []): void
     {
-        echo $this->twig->render($template, $data);
+        echo $this->twig->render($template, array_merge($data, [
+    'session' => $_SESSION,
+    'csrf_token' => Security::csrfToken()
+]));
+
+unset($_SESSION['success'], $_SESSION['error']);
     }
 }

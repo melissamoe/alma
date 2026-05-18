@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function setupNewsletterForm(formId, inputId, messageId) {
+    /*function setupNewsletterForm(formId, inputId, messageId) {
         const form = document.getElementById(formId);
         const input = document.getElementById(inputId);
         const message = document.getElementById(messageId);
@@ -48,12 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
             message.style.color = "#2f7a39";
             form.reset();
         });
-    }
-
+    }*/
+/*
     setupNewsletterForm('newsletter-form-top', 'email-top', 'form-message-top');
     setupNewsletterForm('newsletter-form-bottom', 'email-bottom', 'form-message-bottom');
 
-
+*/
 const scrollTopBtn = document.querySelector('.scroll-top');
 
 window.addEventListener('scroll', () => {

@@ -2,16 +2,25 @@
 
 namespace App\Controllers;
 
+use App\Core\Security;
 use App\Core\Controller;
 use App\Core\Request;
 use App\Core\Response;
 use App\Core\Mailer;
 use App\Models\Subscriber;
 
+
 class NewsletterController extends Controller
 {
     public function subscribe(): void
     {
+        $csrfToken = Request::post('csrf_token', '');
+
+if (!Security::verifyCsrfToken($csrfToken)) {
+    $_SESSION['error'] = "Requête invalide. Veuillez réessayer.";
+    Response::redirect('/');
+}
+
         $email = trim(Request::post('email', ''));
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -35,7 +44,7 @@ class NewsletterController extends Controller
             $subscriberModel->create($email, $token);
         }
 
-        $this->sendConfirmationEmail($email, $token);
+      // $this->sendConfirmationEmail($email, $token);
 
         $_SESSION['success'] = "Votre inscription à la newsletter a bien été prise en compte.";
         Response::redirect('/');
